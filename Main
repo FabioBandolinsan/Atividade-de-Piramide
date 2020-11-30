@@ -1,0 +1,49 @@
+import java.util.Scanner;
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner entrada = new Scanner(System.in);
+		Piramide piram = new Piramide();
+		
+		System.out.println("Digite a altura da pirâmide em metros");
+		piram.setH(entrada.nextFloat());
+		System.out.println("Digite a base da pirâmide em metros");
+		piram.setB(entrada.nextFloat());
+		System.out.println("Qual tipo de tinta deseja?");
+		System.out.println("1-tipo1");
+		System.out.println("2-tipo2");
+		System.out.println("3-tipo3");
+		System.out.println("Digite o número da opção");
+		piram.setTipo(entrada.nextInt());
+		if(piram.getTipo()==1) {
+			piram.setCusto(127.90);
+		}else
+			if(piram.getTipo()==2) {
+				piram.setCusto(258.98);
+			}else
+				if(piram.getTipo()==3) {
+					piram.setCusto(344.34);
+				}
+
+		piram.setArea((piram.getH()*piram.getB())/2);
+		piram.setAreaBase(piram.getB()*piram.getB());
+		piram.setVolume((piram.getAreaBase()/3)*piram.getH());
+		piram.setAreaTotal((piram.getArea()*4)+piram.getAreaBase());
+		piram.setLitro(piram.getAreaTotal()/4.76);
+		piram.setResto(piram.getLitro()%18);
+		piram.setLatas((int) ((piram.getLitro()/18)-piram.getResto()));
+		piram.setCustoTotal(piram.getLatas()*piram.getCusto());
+		
+		System.out.println("ab: "+piram.getB());
+		System.out.println("h: "+piram.getH());
+		System.out.println("Área do Triângulo: "+piram.getArea());
+		System.out.println("Área Base: "+piram.getAreaBase());
+		System.out.println("Área Total: "+piram.getAreaTotal());
+		System.out.println("Tipo de Tinta: "+piram.getTipo());
+		System.out.println("Litros: "+piram.getLitro());
+		System.out.println("Latas: "+piram.getLatas());
+		System.out.println("Preços: "+piram.getCustoTotal());
+		System.out.println("Volume: "+piram.getVolume());
+	}
+
+}
